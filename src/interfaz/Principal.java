@@ -144,7 +144,7 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, 240, 210));
 
-        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra M", "Letra W", "Letra Q", "Letra J", "Letra G", "Letra R" }));
+        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Letra B", "Letra K", "Letra M", "Letra W", "Letra Q", "Letra J", "Letra G", "Letra R", "Reloj de Arena", "Reloj de Arena Invertido", "Cruz", "Rombo" }));
         jPanel1.add(cmbOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -275,9 +275,10 @@ public class Principal extends javax.swing.JFrame {
                  }
             break;
             case 1:
-                if(nf != 9 && nc != 6 || nf != 5 && nc != 4){
-                    Helper.mensaje(this, "Para que puedar resultar esata letra, debe tener los siguientes digitos: "
-                            + "(número de filas = 9 & número de columnas = 6) ", 2);
+                if(nf != 9 && nc != 6 ){
+                    Helper.mensaje(this, "Para que puedar resultar esta letra, debe tener los siguientes digitos: "
+                            + "número de filas = 9 y"+"\n"
+                            +" número de columnas = 6 ", 2);
                 }else {
                 Helper.letraK(tblTablaIncial, tblTablaResultante);
                 }
@@ -330,6 +331,41 @@ public class Principal extends javax.swing.JFrame {
                     Helper.mensaje(this, "Se necesita matriz cuadrada, favor coloque iguales las filas y columnas", 2);
                 }  else {
                 Helper.letraR(tblTablaIncial, tblTablaResultante);
+                }
+                break;
+            case 8:
+                if(nf != 8 || nc != 7 ){
+                    Helper.mensaje(this, "Para que puedar resultar esta figura, debe tener los siguientes digitos: "
+                            + "número de filas = 8 "+"\n"
+                            +"y número de columnas = 7 ", 2);
+                }else {
+                Helper.relojArena(tblTablaIncial, tblTablaResultante);
+                }
+                break;
+            case 9:
+                if(nf != 7 || nc != 8 ){
+                    Helper.mensaje(this, "Para que puedar resultar esta figura, debe tener los siguientes digitos: "
+                            + "número de filas = 7 "+"\n"
+                            +"y número de columnas = 8 ", 2);
+                }else {
+                Helper.relojArenaInvertido(tblTablaIncial, tblTablaResultante);
+                }
+                break;
+            case 10:if (nf % 2 != 0 || nc % 2 != 0) {
+                    Helper.mensaje(this, "El número de filas y columnas deben ser pares", 3);
+                } else if(nf != nc){
+                    Helper.mensaje(this, "Se necesita matriz cuadrada, favor coloque iguales las filas y columnas", 2);
+                }  else {
+                Helper.cruz(tblTablaIncial, tblTablaResultante);
+                }
+                break;
+            case 11:
+                if (nf % 2 == 0 || nc % 2 == 0) {
+                    Helper.mensaje(this, "El número de filas y columnas deben ser impares", 3);
+                } else if(nf != nc){
+                    Helper.mensaje(this, "Se necesita matriz cuadrada, favor coloque iguales las filas y columnas", 2);
+                }  else {
+                Helper.rombo(tblTablaIncial, tblTablaResultante);
                 }
                 break;
 

@@ -542,7 +542,7 @@ public class Helper {
             }
         }
     }
-      public static void rombo(JTable tabla1, JTable tabla2) {
+     public static void relojArena(JTable tabla1, JTable tabla2) {
         int aux, nf, nc;
 
         nf = tabla1.getRowCount();
@@ -551,13 +551,63 @@ public class Helper {
         for (int i = 0; i < nf; i++) {
             for (int j = 0; j < nc; j++) {
                 aux = (int) tabla1.getValueAt(i, j);
-                if (j == i + nc/2) {
+                if ((i <= j && nc - 1 -i >=j) || (j < i && nf - 1 -i <= j) ) {
                     tabla2.setValueAt(aux, i, j);
 
                 }
             }
         }
     }
+        public static void relojArenaInvertido(JTable tabla1, JTable tabla2) {
+        int aux, nf, nc;
+
+        nf = tabla1.getRowCount();
+        nc = tabla2.getColumnCount();
+
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                aux = (int) tabla1.getValueAt(i, j);
+                if ((j <= i && nf - 1 -j >= i) || (i < j && nc - 1 - j <= i)) {
+                    tabla2.setValueAt(aux, i, j);
+
+                }
+            }
+        }
+    }
+        public static void cruz(JTable tabla1, JTable tabla2) {
+        int aux, nf, nc;
+
+        nf = tabla1.getRowCount();
+        nc = tabla2.getColumnCount();
+
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                aux = (int) tabla1.getValueAt(i, j);
+                if (j == nc/2 || j == (nc - 1)/2 || i == nf/2 || i == (nf - 1)/2) {
+                    tabla2.setValueAt(aux, i, j);
+
+                }
+            }
+        }
+    }
+         public static void rombo(JTable tabla1, JTable tabla2) {
+        int aux, nf, nc;
+
+        nf = tabla1.getRowCount();
+        nc = tabla2.getColumnCount();
+
+        for (int i = 0; i < nf; i++) {
+            for (int j = 0; j < nc; j++) {
+                aux = (int) tabla1.getValueAt(i, j);
+                if (j == i + nc/2 ||  nf /2 - i == j || i == j + nc/2 ||nf - i + nf / 2 - 1 == j ) {
+                    tabla2.setValueAt(aux, i, j); 
+
+                }
+            }
+        }
+    }
+         
+      
 }
 
 
